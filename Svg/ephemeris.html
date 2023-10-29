@@ -1,0 +1,528 @@
+<html>
+
+<body xbgcolor="white" bgcolor="black">
+    <svg id="graph" width="300" height="300"></svg>
+    <script>
+        const SECTION_COUNT = 9;
+        const PARAM = {"NAME": 0, "SYMBOL": 1, "LONG": 2, "LAT": 3, "MAG": 4, "COLOR": 5};
+        const EPHEMERIS = {
+            zodiac: [
+                ["aries", "&#9800;", 0, 0, 0, "purple"],
+                ["taurus", "&#9801;", 30, 0, 0, "purple"],
+                ["gemini", "&#9802;", 60, 0, 0, "purple"],
+                ["cancer", "&#9803;", 90, 0, 0, "purple"],
+                ["leo", "&#9804;", 120, 0, 0, "purple"],
+                ["virgo", "&#9805;", 150, 0, 0, "purple"],
+                ["libra", "&#9806;", 180, 0, 0, "purple"],
+                ["scorpio", "&#9807;", 210, 0, 0, "purple"],
+                ["sagittarius", "&#9808;", 240, 0, 0, "purple"],
+                ["capricorn", "&#9809;", 270, 0, 0, "purple"],
+                ["aquarius", "&#9810;", 300, 0, 0, "purple"],
+                ["pisces", "&#9811;", 330, 0, 0, "purple"],
+            ],
+            stars: [
+                ["pleiades", "Pl", 60.21, 4.0898, 1.20, "white"],
+                ["rigel", "Ri", 77.15, -31.1223, 0.15, "white"],
+                ["capella", "Ca", 82.18, 22.8662, 0.05, "white"],
+                ["betelgeuse", "Be", 89.08, -16.0251, 0.45, "white"],
+                ["sirius", "Si", 104.40, -39.6129, -1.45, "white"],
+                ["procyon", "Pr", 116.11, -16.0249, 0.40, "white"],
+                ["Spica", "Sp", 204.16, -2.0561, 0.95, "white"],
+                ["arcturus", "Ar", 204.56, 30.7166, 0.15, "white"],
+                ["antares", "An", 250.08, -4.5726, 1.05, "white"],
+                ["altair", "Al", 302.09, 29.3021, 0.75, "white"],
+                ["fomalhaut", "Fo", 334.18, -21.1394, 1.15, "white"],
+            ],
+            planets: [
+                ["saturn", "&#9796;", 326.39, -1.25, 0.86, "green"],
+                ["jupiter", "&#9795;", 6.92, -1.1646, -2.11, "pink"],
+                ["mars", "&#9794;", 71.32, 2.6651, 0.33, "red"],
+                ["venus", "&#9792;", 341.68, -1.4362, -3.91, "yellow"],
+                ["mercury", "&#9791;", 292.19, -0.0076, -0.11, "orange"],
+                ["sun", "S", 316.41, -0.0022, -26.76, "yellow"],
+            ],
+            moons: [
+                ["moon", "M", 133.76, 4.1247, -8.8, "grey"],
+                /*
+                ["moon", "M", 133.76, 4.1247, -8.8, "grey"],
+                ["moon", "M", 226.41, 4.1247, -8.8, "grey"],
+                ["moon", "M", 316.41, 4.1247, -8.8, "grey"],
+                ["moon", "M", 200, 4, -8.8, "grey"],
+                */
+            ]
+        };
+
+        function initSunTop(eclipticData, prefSunAngle) {
+            var sunDiff = -1000;
+            const sunTop = {zodiac: [], stars: [], planets: [], moons: []};
+            for (planet of eclipticData.planets) {
+                if (planet[PARAM.NAME] == "sun") {
+                    sunDiff = (planet[PARAM.LONG] - prefSunAngle) % 360;
+                }
+            }
+            if (sunDiff < -999) {
+                console.error("Failed to reset Sun");
+                sunDiff = 0;
+            }
+            for (type in eclipticData) for (obj of eclipticData[type]) {
+                var arr = obj.slice();
+                arr[PARAM.LONG] = (arr[PARAM.LONG] - sunDiff) % 360;
+                sunTop[type].push(arr);
+            }
+            return sunTop;
+        }
+
+        function svgSection(center, scale) {
+            var section = center / SECTION_COUNT;
+
+            var radius_inner = section - scale - scale;
+            var radius_outter = (section * 2);
+            var radius_ring = (center - scale);
+
+            var svg = "";
+            svg += `<circle cx="${center}" cy="${center}" r="${radius_inner}"
+                        stroke="white" stroke-width="1" fill="black" fill-opacity="0.9" />`;
+            svg += `<circle cx="${center}" cy="${center}" r="${radius_outter}"
+                        stroke="white" stroke-width="1" fill="black" fill-opacity="0.0" />`;
+            svg += `<circle cx="${center}" cy="${center}" r="${radius_ring}"
+                        stroke="white" stroke-width="1" fill="black" fill-opacity="0.9" />`;
+            svg += `<circle cx="${center}" cy="${center}" r="${center}"
+                        stroke="white" stroke-width="1" fill="black" fill-opacity="0.0" />`;
+            return svg;
+        }
+
+        function svg24HourClock(center, scale, rotation) {
+            var section = center / SECTION_COUNT;
+            var svg = "";
+            for (let z = 0; z < 24; z++) {
+                let angle = (z * 15 + rotation) % 360;
+                let unit = unitXY(angle);
+
+                var x1in = center + (unit.x * (section * 2 - scale));
+                var y1in = center - (unit.y * (section * 2 - scale));
+
+                if (z % 6 == 0) {
+                    x1in = center + (unit.x * (section * 2 - scale - scale));
+                    y1in = center - (unit.y * (section * 2 - scale - scale));
+                }
+
+                var x2out = center + (unit.x * ((section * 2)));
+                var y2out = center - (unit.y * ((section * 2)));
+
+                var radius_inner = section - scale - scale;
+                var radius_outter = (section * 2);
+
+                svg += `<line id="zodiac${angle}" x1="${x1in}" y1="${y1in}"
+                        x2="${x2out}" y2="${y2out}"
+                        style="stroke:white;stroke-width:1" /> `;
+            }
+
+            return svg;
+        }
+
+        function unitXY(angle) {
+            while (angle < 0) {angle += 360;}
+            angle = angle % 360;
+
+            const radian = angle * Math.PI / 180;
+            var x, y;
+            if (angle % 180 == 90) x = 0;
+            else x = Math.cos(radian);
+
+            if (angle % 180 == 0) y = 0;
+            else y = Math.sin(radian);
+
+            return {x: x, y: y};
+        }
+
+        function svgHand(drawType, id, symbol, angle, center, latitude, scale, mag, color) {
+            const unit = unitXY(angle);
+
+            var section = center / SECTION_COUNT;
+            var len = (latitude * section);
+
+            var x2symbol = center + (unit.x * (len + section - scale));
+            var y2symbol = center - (unit.y * (len + section - scale));
+
+            var xline = center + (unit.x * (len + section - scale - scale));
+            var yline = center - (unit.y * (len + section - scale - scale));
+
+            len = (latitude * section * (SECTION_COUNT - 2));
+            var x3point = center + (unit.x * (len + (section * 2)));
+            var y3point = center - (unit.y * (len + (section * 2)));
+
+            var x4ring = center + (unit.x * (center - scale));
+            var y4ring = center - (unit.y * (center - scale));
+
+            var svg = "";
+            if (drawType == "line") {
+                svg = `
+                    <line id="line${id}" x1="${center}" y1="${center}"
+                        x2="${xline}" y2="${yline}"
+                        style="stroke:${color};stroke-width:1" />
+                    `;
+            } else if (drawType == "symbol") {
+                let yfont = y2symbol + (scale / 20);
+                svg = `
+                    <circle id="circle${id}" cx="${x2symbol}" cy="${y2symbol}" r="${scale}"
+                        stroke="${color}" stroke-width="1" fill="black" fill-opacity="0.9" />
+                    <text id="text${id}" x="${x2symbol}" y="${yfont}"
+                        dominant-baseline="middle" text-anchor="middle"
+                        fill="white" font-size="${scale}">${symbol}</text>
+                    `;
+            } else if (drawType == "point") {
+                svg = `
+                    <circle id="mag${id}" cx="${x3point}" cy="${y3point}" r="${mag}"
+                        stroke="${color}" stroke-width="0" fill="${color}" fill-opacity="0.9" />
+                    `;
+            } else if (drawType == "ring") {
+                let yfont = y4ring + (scale / 20);
+                svg = `
+                    <circle id="circle${id}" cx="${x4ring}" cy="${y4ring}" r="${scale}"
+                        stroke="${color}" stroke-width="1" fill="black" fill-opacity="0.9" />
+                    <text id="text${id}" x="${x4ring}" y="${yfont}"
+                        dominant-baseline="middle" text-anchor="middle"
+                        fill="white" font-size="${scale}">${symbol}</text>
+                    `;
+            }
+            return svg;
+        }
+
+        function svgMoonSymbol(symbol, moonLong, moonLat, sunLong, center, scale) {
+            const unit = unitXY(moonLong);
+            const section = center / SECTION_COUNT;
+            const len = (moonLat * section);
+            const xcenter = center + (unit.x * (len + section - scale));
+            const ycenter = center - (unit.y * (len + section - scale));
+            const sunLat = 0;
+
+            const sunPos = unitXY(sunLong + 90);
+            const sunNeg = unitXY(sunLong - 90);
+
+            const xstart = xcenter + (sunPos.x * scale);
+            const ystart = ycenter - (sunPos.y * scale);
+
+            const xend = xcenter + (sunNeg.x * scale);
+            const yend = ycenter - (sunNeg.y * scale);
+
+            const diff = 50 + (Math.min(Math.abs(moonLong - sunLong), Math.abs(sunLong - moonLong)) / 3.6);
+            const hsl = "hsl(60, " + diff + "%, " + diff + "%)"
+
+            var svg = `<path id="moonlight" d="M${xstart},${ystart}
+                       A${scale},${scale} 0 0,1 ${xend},${yend}"
+                       xfill="hsl(60,100%,50%)" fill="${hsl}" fill-opacity="0.9" />`;
+            return svg;
+        }
+
+        function svgMoonPoint(symbol, moonLong, moonLat, sunLong, center, scale) {
+            const unit = unitXY(moonLong);
+            const section = center / SECTION_COUNT;
+            const len = (moonLat * section * (SECTION_COUNT - 2));
+            const xcenter = center + (unit.x * (len + section * 2));
+            const ycenter = center - (unit.y * (len + section * 2));
+            const sunLat = 0;
+
+            const sunPos = unitXY(sunLong + 90);
+            const sunNeg = unitXY(sunLong - 90);
+
+            const xstart = xcenter + (sunPos.x * scale);
+            const ystart = ycenter - (sunPos.y * scale);
+
+            const xend = xcenter + (sunNeg.x * scale);
+            const yend = ycenter - (sunNeg.y * scale);
+
+            const diff = 50 + (Math.min(Math.abs(moonLong - sunLong), Math.abs(sunLong - moonLong)) / 3.6);
+            const hsl = "hsl(60, " + diff + "%, " + diff + "%)"
+
+            var svg = `<path id="moonlight" d="M${xstart},${ystart}
+                       A${scale},${scale} 0 0,1 ${xend},${yend}"
+                       xfill="hsl(60,100%,50%)" fill="${hsl}" fill-opacity="0.9" />`;
+            return svg;
+        }
+
+
+        function initGraph(DATA, rotation) {
+            var w = window.innerWidth - 15;
+            var h = window.innerHeight - 15;
+            var size = Math.min(w, h);
+            var el = document.getElementById("graph");
+            el.innerHTML = "";
+            el.setAttribute("width", size);
+            el.setAttribute("height", size);
+            const CENTER = size / 2;
+            const SCALE = size / 50;
+
+            var lat_max = lat_min = lat_range = 0;
+            for (let obj of DATA.stars) {
+                let lat = obj[3];
+                if (lat < lat_min) lat_min = lat;
+                if (lat > lat_max) lat_max = lat;
+            }
+            lat_range = lat_max - lat_min;
+
+            var mag_max = mag_min = mag_range = 0;
+            for (let obj of DATA.planets) {
+                let mag = obj[4];
+                if (mag > mag_min) mag_min = mag;
+                if (mag < mag_max) mag_max = mag;
+            }
+            mag_min = 0 - mag_min;
+            mag_range = 0 - mag_max - mag_min;
+
+            var svg = "";
+            svg += svgSection(CENTER, SCALE);
+            svg += svg24HourClock(CENTER, SCALE, rotation);
+
+            drawSequence = ["point", "line", "symbol", "ring"];
+            drawSequence = ["point", "line", "ring"];
+            //drawSequence = ["symbol"];
+            var sunLong = -1000;
+            var sunMag = -1000;
+            for (let drawType of drawSequence) {
+                for (let type in DATA) {
+                    if (drawType == "line" && (type == "zodiac" || type == "stars")) continue;
+                    if (drawType == "symbol" && (name == "moon" || name == "sun")) continue;
+                    if (drawType == "point" && type == "zodiac") continue;
+                    for (let obj of DATA[type]) {
+                        let name = obj[PARAM.NAME];
+                        let symbol = obj[PARAM.SYMBOL];
+                        let longitude = obj[PARAM.LONG];
+                        let latitude = (obj[PARAM.LAT] - lat_min) / lat_range;
+                        let magnitude = (0 - obj[4] - mag_min) / mag_range; // [0 - 1]
+                        magnitude = 1 + (size / 400) + 10 * magnitude;
+                        let color = obj[PARAM.COLOR];
+                        if (name == "sun") {
+                            sunLong = longitude;
+                            sunMag = magnitude;
+                        }
+
+                        if (drawType == "point" && name == "moon" && sunMag > -999) {
+                            svg += svgMoonPoint(symbol, longitude, latitude, sunLong, CENTER, sunMag);
+                        } else {
+                            svg += svgHand(drawType, name, symbol, longitude, CENTER, latitude, SCALE, magnitude, color);
+                        }
+                    }
+                }
+            }
+            el.innerHTML = svg;
+        }
+
+        var rotation = 90;
+        function rotate() {
+            var sunTopStuff = initSunTop(EPHEMERIS, rotation);
+            //initGraph(sunTopStuff, rotation);
+            initGraph(EPHEMERIS, rotation);
+            rotation = (rotation - 0.05) % 360;
+        }
+
+        rotate();
+        //setInterval(rotate, 100);
+
+        function haveArgsForOutterPlanets(b, c, s, f) {
+            if ((b == undefined || isNaN(b) || b == 0) &&
+                (c == undefined || isNaN(c) || c == 0) &&
+                (s == undefined || isNaN(s) || s == 0) &&
+                (f == undefined || isNaN(f) || f == 0)) {
+                return false;
+            }
+            return true;
+        }
+
+        function sin(angle) {
+            while (angle < 0) angle += 3600;
+            angle = angle % 360;
+            return (angle % 180 == 0) ? 0 :
+                Math.sin(angle * Math.PI / 180);
+        }
+
+        function cos(angle) {
+            while (angle < 0) angle += 3600;
+            angle = angle % 360;
+            return (angle % 180 == 90) ? 0 :
+                Math.cos(angle * Math.PI / 180);
+        }
+
+        function atanYX(ratio) {
+            return 180 * Math.atan(ratio) / Math.PI;
+        }
+
+        // a semi-major axis (au, au/century)
+        // e eccentricity
+        // i inclination (degrees, degrees/century)
+        // l mean longitude (degrees)
+        // w longitude of perihelion
+        // o longitude of the ascending node
+        //
+        // M mean anomaly derived from b, c, s, f
+        // for Jupiter, Saturn, Uranus, Neptune
+        function kepler(juliandate,
+            ao, an, eo, en, io, ix, lo, ln, wo, wn, oo, on,
+            b, c, s, f) {
+            // step 1. https://ssd.jpl.nasa.gov/planets/approx_pos.html
+            const J2000 = 2451545.0;
+            const T = (juliandate - J2000) / 36525;
+            const a = ao + (an * T);
+            const e = eo + (en * T);
+            const i = io + (ix * T);
+            const l = lo + (ln * T);
+            const w = wo + (wn * T);
+            const o = oo + (on * T);
+
+            // step 2. argument of perihelion W and the mean anomaly M.
+            const W = w - o;
+            var M = l - w; // for inner planets sans b, c, s, f
+            if (haveArgsForOutterPlanets(b, c, s, f)) {
+                M = l - w + (b * T * T)
+                    + (c * cos(f * T))
+                    + (s * sin(f * T));
+            }
+
+            // step 3. modulus -180 <= M <= +180.
+            while (M < -180) M += 360;
+            while (M > 180) M -= 360;
+
+            // step 3. E from Kepler's equation. ex = e*.
+            // M = E - ex sin E = E - (ex * sin(E)).
+            const ex = e * 180.0 / Math.PI;
+            console.log(M + " " + ex);
+            var E = M - (ex * sin(M));
+            while (E < 0) E += 360; E = E % 360;
+            var dM, dE = 1, iter = 0;
+            while (Math.abs(dE) > 0.0000001) {
+                dM = M - (E - (ex * sin(E)));
+                dE = dM / (1 - (e * cos(E)))
+                E = E + dE;
+                while (E < 0) E += 360; E = E % 360;
+                //console.log("dM: " + dM + " dE: " + dE + " E: " + E);
+                if (++iter > 99) break;
+            }
+            //console.log("dE: "+ dE +" E: "+ E +" after "+ iter +" iterations");
+
+            // step 4. heliocentric coordinates rp, xp-axis perihelion
+            const xp = a * (cos(E) - e);
+            const yp = a * Math.sqrt(1 - (e * e)) * sin(E);
+            const zp = 0;
+
+            const x_ecl = (((cos(W) * cos(o)) - (sin(W) * sin(o) * cos(i))) * xp) + (((-1 * sin(W) * cos(o)) - (cos(W) * sin(o) * cos(i))) * yp);
+            const y_ecl = (((cos(W) * sin(o)) + (sin(W) * cos(o) * cos(i))) * xp) + (((-1 * sin(W) * sin(o)) + (cos(W) * cos(o) * cos(i))) * yp);
+            const z_ecl = ((sin(W) * sin(i)) * xp) + ((cos(W) * sin(i)) * yp);
+
+            const e_obliquity = 23.43928; // degrees J2000 ICRF
+            const x_eq = x_ecl;
+            const y_eq = (cos(e_obliquity) * y_ecl) - (sin(e_obliquity) * z_ecl);
+            const z_eq = (sin(e_obliquity) * y_ecl) + (cos(e_obliquity) * z_ecl);
+
+            return {"ecliptic": [x_ecl, y_ecl, z_ecl], "equatorial": [x_eq, y_eq, z_eq]};
+        }
+
+        const KEPLER = {
+            "mercury": [[0.38709927, 0.20563593, 7.00497902, 252.25032350, 77.45779628, 48.33076593],
+            [0.00000037, 0.00001906, -0.00594749, 149472.67411175, 0.16047689, -0.12534081],
+            [0, 0, 0, 0]],
+            "venus": [[0.72333566, 0.00677672, 3.39467605, 181.97909950, 131.60246718, 76.67984255],
+            [0.00000390, -0.00004107, -0.00078890, 58517.81538729, 0.00268329, -0.27769418],
+            [0, 0, 0, 0]],
+            "earthmoon": [[1.00000261, 0.01671123, -0.00001531, 100.46457166, 102.93768193, 0.0],
+            [0.00000562, -0.00004392, -0.01294668, 35999.37244981, 0.32327364, 0.0],
+            [0, 0, 0, 0]],
+            "mars": [[1.52371034, 0.09339410, 1.84969142, -4.55343205, -23.94362959, 49.55953891],
+            [0.00001847, 0.00007882, -0.00813131, 19140.30268499, 0.44441088, -0.29257343],
+            [0, 0, 0, 0]],
+            "jupiter": [[5.20288700, 0.04838624, 1.30439695, 34.39644051, 14.72847983, 100.47390909],
+            [-0.00011607, -0.00013253, -0.00183714, 3034.74612775, 0.21252668, 0.20469106],
+            [-0.00012452, 0.06064060, -0.35635438, 38.35125000]], // b c s f
+            "saturn": [[9.53667594, 0.05386179, 2.48599187, 49.95424423, 92.59887831, 113.66242448],
+            [-0.00125060, -0.00050991, 0.00193609, 1222.49362201, -0.41897216, -0.28867794],
+            [0.00025899, -0.13434469, 0.87320147, 38.35125000]]
+        }
+
+        function heliocentric(juliandate, planetName) {
+            const v = KEPLER[planetName][0];
+            const t = KEPLER[planetName][1];
+            const m = KEPLER[planetName][2];
+            return kepler(juliandate,
+                v[0], t[0], v[1], t[1], v[2], t[2],
+                v[3], t[3], v[4], t[4], v[5], t[5],
+                m[0], m[1], m[2], m[3],);
+        }
+
+        function distance(a3d, b3d) {
+            let x2 = (a3d[0] - b3d[0]); x2 *= x2;
+            let y2 = (a3d[1] - b3d[1]); y2 *= y2;
+            let z2 = (a3d[2] - b3d[2]); z2 *= z2;
+            return Math.sqrt(x2 + y2 + z2);
+        }
+
+        function longLatDist(a3d, b3d) {
+            let x = a3d[0] - b3d[0];
+            let y = a3d[1] - b3d[1];
+            let z = a3d[2] - b3d[2];
+
+            let long = 0;
+            if (x != 0) long = atanYX(y / x);
+            else if (y > 0) long = 90;
+            else if (y < 0) long = 270;
+            while (long < 0) long += 360;
+            long = long % 360;
+
+            console.log("long: " + long);
+
+            let x2 = (a3d[0] - b3d[0]); x2 *= x2;
+            let y2 = (a3d[1] - b3d[1]); y2 *= y2;
+            let z2 = (a3d[2] - b3d[2]); z2 *= z2;
+
+            const radiusLong = Math.sqrt(x2 + y2);
+            let lat = 0;
+            if (z != 0) lat = atanYX(z / radiusLong);
+            console.log("lat: " + lat);
+
+            const radius3d = Math.sqrt(x2 + y2 + z2);
+        }
+
+
+        function geocentric(julianDate) {
+            const mercury = heliocentric(julianDate, "mercury").ecliptic;
+            const venus = heliocentric(julianDate, "venus").ecliptic;
+            const earth = heliocentric(julianDate, "earthmoon").ecliptic;
+            const mars = heliocentric(julianDate, "mars").ecliptic;
+            const jupiter = heliocentric(julianDate, "jupiter").ecliptic;
+            const saturn = heliocentric(julianDate, "saturn").ecliptic;
+            const sun = [0, 0, 0];
+
+            const ex = earth[0];
+            const ey = earth[1];
+            const ez = earth[2];
+
+            console.log(
+                " Mercury: " + mercury[0] + "," + mercury[1] +
+                " Venus: " + venus[0] + "," + venus[1] +
+                " Earth: " + earth[0] + "," + earth[1] + "," + earth[2] +
+                " Mars: " + mars[0] + "," + mars[1] +
+                " Jupiter: " + jupiter[0] + "," + jupiter[1] +
+                " Saturn: " + saturn[0] + "," + saturn[1]);
+
+            const sunr = distance(sun, earth);
+            const todoSun = longLatDist(sun, earth);
+            const todoMercury = longLatDist(mercury, earth);
+            const todoVenus = longLatDist(venus, earth);
+            const todoMars = longLatDist(mars, earth);
+            const todoJupiter = longLatDist(jupiter, earth);
+            const todoSaturn = longLatDist(saturn, earth);
+
+            // TODO: plot long ang lat from calculation
+            // Caculate the moon position.
+
+
+            const sunx = 0 - ex;
+            const suny = 0 - ey;
+            const sunz = 0 - ez
+
+
+        }
+        geocentric(2459981.31);
+
+
+    </script>
+</body>
+
+</html>

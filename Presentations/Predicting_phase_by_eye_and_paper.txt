@@ -1,0 +1,75 @@
+Predicting Lunar Phase Hour by Eye and Pattern
+
+The minutes between phases repeat with predictable patterns. Any or all of these methods may be helpful:
+
+(1) The number of hours between sequential phases (say first quarter to full moon, FQ-FM) this month will be similar to the same duration (FQ-FM) last month. These may differ by nine hours. However, by how much more or less is also predictable (see #4).
+
+(2) The number of hours between phases this month will be similar to the same phase 14 months earlier. The difference can be up to two hours error. By how much more or less is difficult to predict.
+
+(3) Lunar phases one Saros (223 months) or a "Kidin" (251 months) or a "Hipparchus" (17 x 251 = 345 years) will repeat with less than one hour error. Indeed, all eclipse cycles predict lunar phases to some extent.
+
+(4) Each phase type oscillates one month to the next through a pattern from approximately fastest 6.5 days to 6.75, 7, 7.25, 7.5, 7.75, 8, to 8.25 days at its slowest and back down again. The true pattern is a sine wave, changing by up to nine hours in the middle (passing through 7.4 days) or by very little at the extremes (6.5 days and 8.25 days).
+
+(5) Each of the four phase durations oscillate independently, offset by roughly 3 to 4 months of each other (14 months / 4 phases). This pattern is a slowly but consistently shifting sine wave, that may require recalibration by further observation and records.
+
+(6) When one phase is fastest, its opposite phase will be slowest. For example, if conjunction arrived in 7 days after LQ, then the FM did or will arrive approximately 7.75 days after FQ.
+
+(7) Similarly, a phase will be the same number of hours less than the opposite phase was more than average (and vise versa). For example if the FQ arrived in 8.0 days (0.6 days later than average of 7.4), then we can expect the LQ to arrive in 6.8 days (0.6 days before 7.4).
+
+These methods above were certainly known to our ancestors thousands of years ago. Additionally, they tracked the motion of the Sun and Moon against the background Stars (and zodiac signs along the ecliptic). Indeed, the methods above all derive from records that tracked the Sun, Moon, and Stars.
+
+
+
+Based on Summerian recorded eclipses (before Shulgi 2100 BC), the Babylonians were able to predict conjunction in advance with 4 minutes precision (on the modern clock). They plotted the motion of the Sun and Moon to one degree (of 360 'ush').
+
+Kindin's "Lunar system B" accounted for the 27.55 day acceleration cycle in the 29.53 day month (derived from an eclipse cycle of exactly 4267 months in exactly 345 years). Unfortunately, the exceptionally accurate 14/15 month or 251/269 synodic/anomaly cycle does not align the draconic cycle (27.21 days), when the plane of the Moon crosses the plane of the Sun (from about 5 degrees), before 345 years.
+
+The Saros cycle aligns the synodic phases of the moon (29.53 days), anomaly (27.55), and the draconic month (27.21). For our purposes, the last quarter to conjunction 223 months ago will have the same duration as the conjunction this month (to within one hour accuracy, since Shulgi 2100 BC).
+
+More conveniently perhaps, though less accurately, the duration of the same phase 14 months ago will repeat this month to within 2 hours.
+
+Additionally, when the opposite phase was shortest (6.6 days), this phase will be longest (8.2 days). When one phase is average length, the opposite will also be average (7.4 days). Each phase has its own cycle, increasing or decreasing approximately a quarter day from month to month.
+
+Let's predict the conjunction preceding 14 Nisan 33 AD: We know that a total solar eclipse was seen on 19 March, within moments of the conjunction at 10:39 UTC (afternoon in Jerusalem), and followed by the vernal equinox. Presumably 1 Nisan was announced on 21 March (give or take a sunset). The first quarter was 26 March 10:34 (5 minutes shy of exactly seven days after conjunction) on 6 Nisan. A partial lunar eclipse was seen on 3 March at 14:52 UTC (17:52 IDT Jerusalem UTC+3), late 14 Nisan, moments before sunset and thus 15 Nisan (by Jewish count). The full moon occured exactly 8 days, 4 hours, and 18 minutes after the first quarter.
+
+The 19 March AD 33 conjunction was 9541 (6 days and 15 hours plus 1 minute) after the last quarter of 12 Mar. One saros earlier (223 months) was the total solar eclipse of 31 March AD 15, exactly 9536 minutes (6 days, 15 hours minus 4 minutes) after the last quarter of 22 Feb. Fourteen months earlier, the conjunction of 31 Jan AD 32 was 9564 minutes (6 days, 15 hours, 24 minutes) after last quarter 24 Jan. The previous conjunction on 18 Feb AD 33 occured 9726 minutes (6 days and 18 hours) after the last quarter 11 Feb.
+
+Conjunctions are impossible to see if we missed the eclipse. The full moon 4 March was 11640 minutes after the first quarter 24 Feb, over eight days between. Because the full moon arrived 16 hours more than an average phase, we can predict that the conjunction will arrive 16 hours less than an average phase. If our observations were so precise, we'd be less than 45 minutes error. More likely, we'd observe that the full moon arrived eight days after the first quarter and we'd estimate that the conjunction will occur a quarter shy of seven days after the last quarter (phases tend to be: 6.50 days, 6.75, 7.00, 7.25, 7.50, 7.75, 8.00, 8.25 days then back down, up, and down again in roughly the same pattern).
+
+
+
+
+
+
+19 20 21 22 23 24 25 26 27 28 29 30 31  1  2  3  4  5  6  7  8  9  10 11 12
+ C  E  1  2  3  4  5  6  7  8  9 10 11 12 13 14
+There was a partial lunar eclipse Nisan
+
+
+224 months earlier
+0015-02-07 17:25		0015-02-14 12:31	0015-02-22 15:07		0015-03-02 11:44
+9700	9786	11676	11317
+
+223 months earlier
+0015-03-09 02:40	T	0015-03-16 03:29	0015-03-24 07:55	p	0015-03-31 19:56
+9536	10129	11786	10801
+
+
+15 months earlier
+0032-01-01 14:15		0032-01-08 07:54	0032-01-16 10:37		0032-01-24 08:49
+9811	9699	11683	11412
+
+14 months earlier
+0032-01-31 00:13		0032-02-07 00:02	0032-02-15 04:35		0032-02-22 19:03
+9564	10069	11793	10948
+
+Month before
+0033-02-18 01:49		0033-02-24 20:21	0033-03-04 22:21		0033-03-12 19:38
+9726	9752	11640	11357
+
+0033-03-19 10:39	T	0033-03-26 10:34	0033-04-03 14:52	p	0033-04-11 03:46
+9541	10075	11778	10854
+
+
+
+
