@@ -1,0 +1,172 @@
+Calendar history is a series of confusion and correction,
+regression, confusion and correction.
+
+    Let there be lights in the Heavens to separate day from night;
+    let them be for signs, seasons, days, and years ...
+    the Sun to rule the day, the Moon to rule the night
+    (Genesis 1:14)
+
+The oldest recorded Sumerian calendar named the lunar months,
+intercalating an extra month before March or September
+to align the first and seventh months with the equinoxes.
+The Babylonians inserted a second Elul before Tishri once
+and inserted six Beta (a second Adar or Adar II) before Nisan in 19 years.
+Following Cyrus, only and exactly seven Beta were inserted before Nisan in 19 years.
+
+Greek and Roman politics rendered their lunar calendars inconsistent
+until after 46 BC when Julius Casar established a solar calendar
+with a leap day every four years.
+Unfortunately this was slightly too many,
+such that by 1582, March 20 was ten days ahead of the equinox.
+Similarly, the Hebrew calendar established by Hilell II in 359,
+has accumulated error such that Passover is a month late approximately every three years.
+If not corrected in future millenia,
+Passover will be over a month late every year.
+The Gregorian calendar corrected the Julian drift
+to realigned 20 March with the equinox
+as in the year of the First Council of Nicaea in 325.
+Without further correction (like the Orthodox Reformed Julian or Persian Solar Hijri)
+20 March will align with the equinox, give or take a day, and some hours.
+
+If we begin Nisan after the conjunction after 5 March,
+the moon will nearly always be full after the March equinox.
+The full moon can be 13-16 days after conjunction and the equinox can be 19-21 March.
+If concerned with strict alignment or postponement,
+one might confirm the previous rule when the conjunction is between 3-8 March.
+Earlier conjunctions always require Beta, pushing Nisan from February toward April.
+
+Lunar months can be 29 or 30 days and often alternate.
+Rarely up to three 29 day months or four 30 day months are observed in sequence.
+Yet there from the conjunction of Nisan to the full
+(if 5 March conjection, the seventh full moon with always be 12 or 13 September)
+Thus already in September, it can be determined whether Beta (second Adar) must be inserted before the following Nisan.
+
+EDIT
+
+
+The full moon of Tishri will be six months and 7 or 8 days after Nisan conjunction.
+The full moon of Heshvan will be seven months and 7 or 8 days after Nisan conjunction.
+
+
+The Sun rules days from Spring (March equinox) and the Moon rules nights from Autumn (September equinox).
+
+
+The seventh full moon is always 191 or 192 days
+(six Gregorian months and 7 or 8 days) after Nisan's conjunction.
+For example conjunction 5 March and full moon 12 or 13 September.
+Conjunction 20 March and full moon 27 or 28 September.
+Conjunction 30 March and full moon  7 or  8 October.
+Conjunction  1 April and full moon  9 or 10 October.
+
+There are likewise only two possible day counts between the full moon of Tishri
+and the two conjunctions (Adar or Beta) and Nisan.
+There are 162 or 163 days (five Gregorian months and 9 or 10 days)
+from the full moon of Tishri to conjunction of Adar.
+There are 190 or 191 days from the full moon of Tishri to the subsequent
+conjunction (Beta or Nisan).
+However, because of the possible leap day 29 February,
+there may be three different Gregorian dates for the conjunctions.
+For example
+full moon 25 September and  5,  6, or  7 March conjunction.
+Full moon 10 October   and 20, 21, or 22 March conjunction.
+
+If the full moon is early, then Beta (second Adar) will be inserted.
+For example
+full moon 12 September and inserted Beta conjunction on
+    21, or 22 February before
+    1, 2, or 3 April conjunction of Nisan.
+Full moon 22 September, early Beta conjunction on
+    2, 3, or 4 March before
+    1, 2, or 3 April conjunction of Nisan.
+
+
+Because of the 29 February leap day,
+there are three possibilities from Tishri full moon to the next conjunction before Nisan.
+
+A similar pattern
+
+ 5 March conj, 12-13 Sep and 12-13 Oct full moons, 22-23 Feb conj
+               12    Sep                           21-22 Feb and 22-24 Mar conj
+                  13 Sep                           22-23 Feb and 23-25 Mar conj
+10 March conj, 17-18 Sep and 17-18 Oct full moons, 27-28 Feb conj
+12 March conj, 19-20 Sep and 19-20 Oct full moons, (29 Feb), 1 or 2 March conj
+16 March conj, 23-24 Sep and 23-24 Oct full moons,
+22 March conj, 29-30 Sep and Oct full moon,
+31 March conj,  8- 9 Oct and Oct full moon,
+ 1 April conj,  9-10 Oct and  8- 9 Nov full moons, (20), 21 or 22 March conj
+ 3 April conj, 11-12 Oct and 10-12 Nov full moons,
+
+
+
+03-10 conjunction, 09-()
+
+
+
+
+====
+
+
+The new and full moons of Nisan and Tishri align well with the March and September equinoxes.
+The first conjunction of Nisan in early March will align the full moon closely with the equinox.
+However, if the first conjunction of Nisan is late March, the full moon of Tishri will be in early October yet still closest to the September equinox.
+
+Note that the Hebrew calendar drifts a week later each millenium, due to its strict adherence to the subtly erroneous Meton Cycle.
+Nisan need never begin in April unless for example Passover 14th must be observed after the vernal equinox.
+
+
+    _Mar 67890123456789_Eqx 5678901_Apr [ ... 184 ... ] _Sep 6789012345678901_Eqx 7890_Oct 67890123456789012345678901
+
+    _Nisan 8901234_Full 1_3456789[ ... 176 ... ]_Tishri 901234_Full 1_34567890
+    _Nisan 8901234_Full 1_3456789[ ... .. 179 ... ]_Tishri 901234_Full 1_34567890
+
+        ( Adar )       _Nisan 8901234_Full 1_3456789[ ... 176 ... ]_Tishri 901234_Full 1_34567890
+                       _Nisan 8901234_Full 1_3456789[ ... .. 179 ... ]_Tishri 901234_Full 1_34567890
+
+        ( Adar II )               _Nisan 8901234_Full 1_3456789[ ... 176 ... ]_Tishri 901234_Full 1_34567890
+                                  _Nisan 8901234_Full 1_3456789[ ... .. 179 ... ]_Tishri 901234_Full 1_34567890
+
+    _Mar 67890123456789_Eqx 5678901_Apr [ ... 184 ... ] _Sep 6789012345678901_Eqx 7890_Oct 67890123456789012345678901
+
+
+
+
+    | March  10   15   Eqx  25     | Apr    ... 184 ... | September   15   20 Eqx     | October
+    |                              |                    |                             |
+    | Nisan       Full           | ... 176 .... | Tishri      Full            | Cheshvan    Full
+    | ................................... 179 .... | Tishri      Full            | Cheshvan    Full
+    |                              |                    |                             |
+         | Nisan       Full           | ... 176 .... | Tishri      Full            | Cheshvan    Full
+         | ................................... 179 .... | Tishri      Full            | Cheshvan    F
+    |                              |                    |                             |
+    Adar               | Nisan       Full           | ... 176 .... | Tishri      Full            |
+                       | ................................... 179 .... | Tishri      Full            |
+    |                              |                    |                             |
+    | March  10   15   Eqx  25     |Apr [ ... 184 ... ] | September   15     Eqx      | October
+
+
+If Nisan begins on 1 March, Tishri will begin earliest 24 August or begin latest 27 August (176 to 179 days later).
+If Nisan begins on 6 March, the full moon 15 Nisan may align with the equinox 20 March and Tishri will begin 29 Aug to 1 Sep and 15 Tishri will be 12 to 15 September.
+If Nisan begins on 9 March, the full moon will follow the equinox, Tishri will begin 1 to 4 September and the full moon will be close to the equinox.
+If Nisan begins on the equinox 20 March, the full moon 15 Nisan will be 3 April, Tishri will begin 12 to 15 September a week before the equinox.
+If Nisan begins on the equinox 20 March, the full moon 15 Nisan will be 3 April, Tishri will begin 12 to 15 September a week before the equinox.
+If Nisan begins on 31 March, the full moon will be 14 April, Tishri will begin on 23 or after the equinox 26 September with an early October full moon.
+
+| March | April | May | June | July | August | September | October | November | December | February |
+| Nisan | Iyar | Sivan | Tammuz | Av | Elul | Tishri | Cheshvan | Kislev | Tevet | Shevat | Adar |
+
+A sequence of four thirty day month (30 30 30 30) is possible.
+A sequence of three twenty-nine day months (29 29 29) is possible.
+
+The following six lunar month patterns are possible:
+
+:  146 + 30 = 176 days
+:  147 + 29 = 176 days
+
+:  147 + 30 = 177 days
+:  148 + 29 = 177 days
+
+:  148 + 30 = 178 days
+:  149 + 29 = 178 days
+
+:  149 + 30 = 179 days
+
