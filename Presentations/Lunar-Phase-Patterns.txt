@@ -1,0 +1,157 @@
+Lunar phase patterns
+====================
+
+The lunar phases repeat just shy of every 14 months.
+More accurately (a sixteenth of a Saros cycle 223/16) about every 13.94 months.
+Despite predicting eclipses over hundreds of years,
+even the Saros cycle diverges from the actual patterns of the unruly Moon.
+
+Within a year or two,
+we can expect the lunar phases to approximate the following pattern:
+
+    W_y_W____________x_z_x______w_Y_w____________X_Z_X______
+
+Where W is the opposite phase from Y; X is opposite Z;
+Capitals are the peak slowest or fastest,
+and lower case is the opposite (fastest or slowest) duration.
+
+For example:
+
+    C_f_C____________a_Z_a______c_F_c____________A_z_A______C_f_C____________a_Z_a ...
+
+Here "C" represents the slowest conjunction (over 8 days since previous last quarter)
+followed by "_" (implied first quarter of a typical seven and a half days,
+give or take a dozen hours),
+then "f" represents the fastest full moon (under 7 days since the first quarter).
+"A" and "a" are the extemes of the first quarter;
+"Z" and "z" are the extremes of the last quarter.
+Phases always repeat the sequence:
+conjunction, first quarter, full moon, last quarter, ...
+However, only the extremes (about 160 or 195 hours) are marked with a letter
+while the "_" are unlabelled phases of moderate durations
+(between about 165 and 190 hours).
+
+Note that "C" is repeated with a single "f" in between.
+Presumably, this is because the Moon happened to be closest to the Earth (perigee)
+on or just before the full moon (what is popularly called "super moon").
+This full moon will be fastest in the sky against the stars
+and of an extremely short duration
+(perhaps six days and 14 hours since the first quarter).
+In contrast the conjunctions of similar duration before and after
+may be the slowest conjunctions of the year, but neither is extreme.
+(Rarely do the actual observed patterns perfectly match these ideals.
+In practice, it is likely that one of the repeated phases
+is more extreme than the other, more closely aligning with apogee or perigee).
+
+The elliptical orbit of the Moon itself (anomaly)
+follows a cycle independent of lunations.
+Indeed, the observed lunar phases are the result of several cycles combined.
+Which is why the lunar phases (synodic month) are notoriuous difficult to predict
+without modelling all cycles including the Earth's orbit (and even Jupiter!).
+The perigee will drift through the phases, such that seven months later,
+the full moon will be observed during apogee,
+and again perigee another seven months later.
+Because the lunar phases are not quite 14 months
+(the synodic does not align perfectly with the anomalistic month),
+these phase patterns will eventually morph toward different extremes. For example:
+
+    Z_a_Z______F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F______ ...
+
+Note the extremes of the same phase will
+repeat approximately every 56 phases (14 months) later,
+the opposite extreme of the same phase will repeat after 28 phases (7 months),
+but the extremes of different phases are observed after 11 or 17 phases
+(a phase less than 3 or a phase more than 4 months).
+
+.
+
+EOT
+
+.
+
+Scrap notes:
+
+% for X in F C A Z f c a z ; do echo try ${X} count `sed "s:\(${X}_._${X}................\):\n\1:g" mix1 | grep "${X}.*${X}" | wc -l` ; done
+
+count C single: 5322 double: 3351 triple:  1
+count A single: 5321 double: 3499 triple:  2
+count F single: 5321 double: 3467 triple:  3
+count Z single: 5322 double: 3467 triple:  2
+count c single: 5321 double: 3637 triple: 59
+count a single: 5322 double: 3547 triple: 54
+count f single: 5322 double: 3637 triple: 62
+count z single: 5321 double: 3631 triple: 66
+
+
+C_f_C____________a_Z_a______c_F_c____________A_z_A______C_f_C____________a_Z_a______c_F_c____________A_z_A______
+f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______
+
+
+    f_C_f_C__________Z_a_Z_a____F_c_F_c__________z_A_z_A____f_C_f_C__________Z_a_Z_a____F_c_F_c__________z_A_z_A______
+    f_C_f_C__________Z_a_Z_a____F_c_F_c__________z_A_z_A____f_C_f_C__________Z_a_Z_a____F_c_F_c__________z_A_z_A____
+
+
+
+
+
+C..................Z
+Z..........F
+Z.........................A
+Z.........................A.z
+Z......................................f
+Z..........F..............A.z..........f --- 90%
+F...........................f --- 99%
+F..................A
+F............................................Z
+z..........f..................a........F
+
+__o_X_o_...._o_X_...______..._X_o_
+__o_X_o_.....____._X_o_......_X_o_X_
+__o_X_o_....._____.._o_X_......_o_X_
+__X_o_X......._o_X_._____......_X_o_
+__X_o_X......____..._X_o_......_X_o_
+__\([oX]\)_\([oX]\)_\1_...._\1_\2_\1_.________._\2_\1_\2_
+
+
+Conjunction, A)First Q, Full Moon, Z)Last Q
+CAFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZ AFZC
+o_X_o______o_X_o____________X_o_X______X_o_X____________
+
+
+===
+
+._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o
+__C_f_C____________a_Z_a______c_F_c____________A_z_A____f_C_f______________a_Z_a______c_F_c__________z_A_z_A____f_C_f_C____________a_Z_a____F_c_F______________A_z______f_C_f_C__________Z_a_Z_a____F_c
+__C_f_C____________a_Z_a______c_F_c____________A_z_A______C_f_C____________a_Z_a______c_F_c____________A_z_A______C_f_C____________a_Z_a______c_F_c____________A_z_A______C_f_C____________a_Z_a______c_F_c
+
+
+__o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o
+__z_A_z______f_C_f_C__________Z_a_Z______F_c_F_c__________z_A_z_A____f_C_f_C__________Z_a_Z______F_c_F______________A_z_A____f_C_f_C__________Z_a_Z_a______c_F_c__________z_A_z_A____f_C_f
+__z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f
+
+
+._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_
+__Z_a_Z____c___c_F______________A_z_A__C_f_C_f____________Z_a_Z_a____F_c_F__________A_z_A_z______f_C_f____________Z_a_Z_a____F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F
+
+
+____o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_
+__A_z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f____________Z_a_Z____c_F_c______________z_A_z____C_f_C______________Z_a______c_F_c____________A_z_A_z____C_f_C___
+
+
+__o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_...
+__a_Z_a______c_F_c____________A_z_A______C_f_C____________a_Z_a______c_F_c_F__________A_z_A______C_f_C____________a_Z_a______c_F_c_F__________A_z_A_z____C_f_C_f__________a_Z_a______c_F_c____
+
+
+._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_
+__A_z_A____f_C_f_C____________a_Z_a_Z__F_c_F______________A_z_A_z____C_f_C__________Z_a_Z_a____F_c_F_c__________z_A_z___z__f_C_f_C__________Z_a_Z_a______c_F_c__________z_A_z_A____f_C_f_C_
+
+
+____o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.....
+__Z_a_Z_a____F_c_F_c____________A_z_A______C_f_C__________Z_a_Z_a______c_F_c__________z_A_z_A____f_C_f_C____________a_Z_a______c_F______________A_z_A____f_C_f____________Z_a_Z_a____F_c_F________
+
+__o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_........
+__z_A_z______f_C_f____________Z_a_Z_a____F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f____________Z_a_Z______F_c_F____________z_A_z______f_C_f_________
+
+
+._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_.........._o_X_o_...._o_X_o_.........._X_o_X_...._X_o_X_
+__Z_a_Z____c_F_c_F____________z_A_z______f_C______________Z_a_Z____c_F_c_F__________A_z_A_z____C_f_C_f__________a_Z_a______c_F_c____________A_z_A_z____C_f_C____________a_Z_a_Z____c_F_c_F_
