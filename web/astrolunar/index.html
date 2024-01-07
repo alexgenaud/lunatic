@@ -13,50 +13,58 @@ page[size="A4"] {
   width: 21cm;
   height: 29.7cm;
 }
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;
+}
 @media print {
   body, page {
     background: white;
-    margin: 0;
+    margin: 0 auto;
     box-shadow: 0;
   }
 }
 .container {
+    position: relative;
+    width: 29.7cm;
+    height: 21cm;
+}
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 29.7cm;
+    height: 21cm;
+    background-color: black;
+}
+.date {
+    position: absolute;
+    bottom: 0;
+    width: 29.7cm;
     display: flex;
-    height: 100%;
+    flex-direction: row-reverse;
 }
-.left-side {
-    width: 15cm;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.date div {
+  flex: 1;
+  background-color: rgba(0,0,0, 0.5);
+  color: white;
+  display: flex;
+  align-items: top;
+  justify-content: left;
+  padding: 0 0.5cm 1cm 1cm;
 }
-.right-side {
-    width: 6cm;
-    display: flex;
-    flex-direction: column;
-}
-.right-side div {
-    flex: 1;
-    align-items: top;
-    justify-content: left;
-    padding: 0 0 0 2%;
-    background: white;
-}
-.rotA4 { width: 29.7cm; height: 15cm; transform: rotate(270deg); }
+.imgA4 { width: 100%; height: 100%; object-fit:cover; object-position: center; }
         </style>
     </head>
     <body>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img23/12.03-135-12.11-235.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/12.05-lq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2023 W 49</div>
-                    <div>Mon 4 Dec<br />21 Kislev</div>
+                <div class="date">
+                    <div>2023 W 49<br />21 Kislev</div>
                     <div>Tue 5:49<br />Last Quarter</div>
                     <div>Wed 6 Dec<br />23 Kislev</div>
                     <div>Thu 7 Dec<br />24 Kislev</div>
@@ -67,14 +75,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img23/12.10-220-12.18-330.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/12.13-nm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2023 W 50</div>
-                    <div>Mon 11 Dec<br />28 Kislev</div>
+                <div class="date">
+                    <div>2023 W 50<br />28 Kislev</div>
                     <div>Tue 23:32<br />Conjunction</div>
                     <div>Wed 13 Dec<br />1 Tebeth</div>
                     <div>Thu 14 Dec<br />2 Tebeth</div>
@@ -85,14 +92,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img23/12.17-317-12.25-70.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/12.19-fq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2023 W 51</div>
-                    <div>Mon 18 Dec<br />6 Tebeth</div>
+                <div class="date">
+                    <div>2023 W 51<br />6 Tebeth</div>
                     <div>Tue 18:39<br />First Quarter</div>
                     <div>Wed 20 Dec<br />8 Tebeth</div>
                     <div>Thu 21 Dec<br />9 Tebeth</div>
@@ -103,14 +109,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img23/12.27-full-moon.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/12.27-fm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2023 W 52</div>
-                    <div>Mon 25 Dec<br />13 Tebeth</div>
+                <div class="date">
+                    <div>2023 W 52<br />13 Tebeth</div>
                     <div>Tue 26 Dec<br />14 Tebeth</div>
                     <div>Wed 00:33<br />Full Moon</div>
                     <div>Thu 28 Dec<br />16 Tebeth</div>
@@ -121,14 +126,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/01.04-fq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/01.04-lq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 1</div>
-                    <div>Mon 1 Jan<br />20 Tebeth</div>
+                <div class="date">
+                    <div>2024 W 1<br />20 Tebeth</div>
                     <div>Tue 2 Jan<br />21 Tebeth</div>
                     <div>Wed 3 Jan<br />23 Tebeth</div>
                     <div>Thu 00:33<br />First Quarter</div>
@@ -139,14 +143,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/01.11-nm.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/01.11-nm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 2</div>
-                    <div>Mon 8 Jan<br />27 Tebeth</div>
+                <div class="date">
+                    <div>2024 W 2<br />27 Tebeth</div>
                     <div>Tue 9 Jan<br />28 Tebeth</div>
                     <div>Wed 10 Jan<br />29 Tebeth</div>
                     <div>Thu 11:57<br />Conjunction</div>
@@ -157,14 +160,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/01.18-fq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/01.18-fq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 3</div>
-                    <div>Mon 15 Jan<br />4 Shebat</div>
+                <div class="date">
+                    <div>2024 W 3<br />4 Shebat</div>
                     <div>Tue 16 Jan<br />5 Shebat</div>
                     <div>Wed 17 Jan<br />6 Shebat</div>
                     <div>Thu 3:53<br />First Quarter</div>
@@ -175,14 +177,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/01.25-fm.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/01.25-fm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 4</div>
-                    <div>Mon 22 Jan<br />11 Shebat</div>
+                <div class="date">
+                    <div>2024 W 4<br />11 Shebat</div>
                     <div>Tue 23 Jan<br />12 Shebat</div>
                     <div>Wed 24 Jan<br />13 Shebat</div>
                     <div>Thu 17:54<br />Full Moon</div>
@@ -193,14 +194,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/02.02-lq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/02.02-lq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 5</div>
-                    <div>Mon 29 Jan<br />18 Shebat</div>
+                <div class="date">
+                    <div>2024 W 5<br />18 Shebat</div>
                     <div>Tue 30 Jan<br />19 Shebat</div>
                     <div>Wed 31 Jan<br />20 Shebat</div>
                     <div>Thu 1 Feb<br />21 Shebat</div>
@@ -211,14 +211,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/02.09-nm.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/02.09-nm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 6</div>
-                    <div>Mon 5 Feb<br />25 Shebat</div>
+                <div class="date">
+                    <div>2024 W 6<br />25 Shebat</div>
                     <div>Tue 6 Feb<br />26 Shebat</div>
                     <div>Wed 7 Feb<br />27 Shebat</div>
                     <div>Thu 8 Feb<br />28 Shebat</div>
@@ -229,14 +228,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/02.16-fq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/02.16-fq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 7</div>
-                    <div>Mon 12 Feb<br />3 Adar</div>
+                <div class="date">
+                    <div>2024 W 7<br />3 Adar</div>
                     <div>Tue 13 Feb<br />4 Adar</div>
                     <div>Wed 14 Feb<br />5 Adar</div>
                     <div>Thu 15 Feb<br />6 Adar</div>
@@ -247,14 +245,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/02.24-fm.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/02.24-fm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 8</div>
-                    <div>Mon 19 Feb<br />10 Adar</div>
+                <div class="date">
+                    <div>2024 W 8<br />10 Adar</div>
                     <div>Tue 20 Feb<br />11 Adar</div>
                     <div>Wed 21 Feb<br />12 Adar</div>
                     <div>Thu 22 Feb<br />13 Adar</div>
@@ -265,14 +262,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/03.03-lq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/03.03-lq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 9</div>
-                    <div>Mon 26 Feb<br />17 Adar</div>
+                <div class="date">
+                    <div>2024 W 9<br />17 Adar</div>
                     <div>Tue 27 Feb<br />18 Adar</div>
                     <div>Wed 28 Feb<br />19 Adar</div>
                     <div>Thu 29 Feb<br />20 Adar</div>
@@ -283,14 +279,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/03.10-nm.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/03.10-nm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 10</div>
-                    <div>Mon 4 Mar<br />24 Adar</div>
+                <div class="date">
+                    <div>2024 W 10<br />24 Adar</div>
                     <div>Tue 5 Mar<br />25 Adar</div>
                     <div>Wed 6 Mar<br />26 Adar</div>
                     <div>Thu 7 Mar<br />27 Adar</div>
@@ -301,14 +296,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/03.17-fq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/03.17-fq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 11</div>
-                    <div>Mon 11 Mar<br />1 Nisan</div>
+                <div class="date">
+                    <div>2024 W 11<br />1 Nisan</div>
                     <div>Tue 12 Mar<br />2 Nisan</div>
                     <div>Wed 13 Mar<br />3 Nisan</div>
                     <div>Thu 14 Mar<br />4 Nisan</div>
@@ -319,14 +313,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/03.20-ve.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/03.20-eq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 12</div>
-                    <div>Mon 18 Mar<br />8 Nisan</div>
+                <div class="date">
+                    <div>2024 W 12<br />8 Nisan</div>
                     <div>Tue 19 Mar<br />9 Nisan</div>
                     <div>Wed 3:06<br />Equinox</div>
                     <div>Thu 21 Mar<br />11 Nisan</div>
@@ -337,14 +330,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/03.25-fm.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/03.25-fm.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 13</div>
-                    <div>Mon 7:00<br />Full Moon</div>
+                <div class="date">
+                    <div>2024 W 13<br />Full Moon</div>
                     <div>Tue 26 Mar<br />16 Nisan</div>
                     <div>Wed 27 Mar<br />17 Nisan</div>
                     <div>Thu 28 Mar<br />18 Nisan</div>
@@ -355,14 +347,13 @@ page[size="A4"] {
             </div>
         </page>
 
-        <page size="A4">
+        <page size="A4" layout="landscape">
             <div class="container">
-                <div class="left-side">
-                    <img src="img24/04.02-lq.png" class="rotA4">
+                <div class="sky">
+                    <img src="img/04.02-lq.png" class="imgA4">
                 </div>
-                <div class="right-side">
-                    <div><br /><br />2024 W 14</div>
-                    <div>Mon 1 Apr<br />23 Nisan</div>
+                <div class="date">
+                    <div>2024 W 14<br />23 Nisan</div>
                     <div>Tue 3:15<br />Last Quarter</div>
                     <div>Wed 3 Apr<br />24 Nisan</div>
                     <div>Thu 4 Apr<br />25 Nisan</div>
